@@ -1,0 +1,44 @@
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: dc-test
+      MYSQL_USER: dc
+      MYSQL_PASSWORD: dc-test
+      MYSQL_ROOT_PASSWORD: dc-test
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+
+
+  php-api:
+    build:
+      context: ./dc-api
+      dockerfile: docker/php/Dockerfile.build # change this to Dockerfile for production build to skip tests & migrations
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+
+  php-web:
+    build:
+      context: ./dc-api
+      dockerfile: docker/nginx/Dockerfile
+    volumes:
+      - ./dc-api/public:/code/public
+      - ./dc-api/docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./dc-api/docker/nginx/sites:/etc/nginx/sites-available
+      - ./dc-api/docker/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    links:
+      - php-api
+
+
+
