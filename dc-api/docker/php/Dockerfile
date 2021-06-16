@@ -19,7 +19,7 @@ RUN docker-php-ext-install gd
 RUN docker-php-ext-install curl
 RUN docker-php-ext-install pdo
 
-ADD ./ /code
+COPY ./ /code
 
 WORKDIR /code
 ## download composer and install packages
