@@ -41,7 +41,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $name;
 
-
     /**
      * A visual identifier that represents this user.
      *
@@ -50,6 +49,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUserIdentifier(): int
     {
         return (int) $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
+    {
+        $this->email = $email;
     }
 
     /**

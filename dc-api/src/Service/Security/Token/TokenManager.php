@@ -19,6 +19,7 @@ class TokenManager
 
     /**
      * @param array $data
+     * @return string
      */
     public function generateToken(array $data): string
     {

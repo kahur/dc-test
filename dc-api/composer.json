@@ -42,7 +42,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "DC\\Tests\\": "tests/"
+            "DC\\Tests\\": "tests/",
+            "DC\\Fixtures\\" : "fixtures/"
         }
     },
     "replace": {
