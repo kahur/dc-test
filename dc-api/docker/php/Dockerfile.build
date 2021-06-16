@@ -19,7 +19,7 @@ RUN docker-php-ext-install gd
 RUN docker-php-ext-install curl
 RUN docker-php-ext-install pdo_mysql
 
-ADD ./ /code
+COPY ./ /code
 
 WORKDIR /code
 
@@ -30,8 +30,5 @@ RUN php composer.phar install
 
 # Stage 2 run tests
 RUN php bin/phpunit
-
-# Stage 3 Run migrations
-RUN php bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration
 
 

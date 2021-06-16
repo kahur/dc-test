@@ -1,3 +1,7 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+default:
+  path: /
+  controller: DC\Controller\HomeController::index
+api:
+  resource: ../src/Api/V1/Controller
+  type: annotation
+  prefix: /api
