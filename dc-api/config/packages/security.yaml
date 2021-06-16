@@ -1,6 +1,7 @@
 security:
-    encoders:
-        DC\Entity\User: 'sodium'
+    password_hashers:
+        DC\Entity\User:
+            algorithm: 'auto'
 
     # https://symfony.com/doc/current/security/experimental_authenticators.html
     enable_authenticator_manager: true

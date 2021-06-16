@@ -125,7 +125,7 @@ class JwtAdapter implements AdapterInterface
     /**
      * @param $token
      * @param string|null $algorithm
-     * @return array|null
+     * @return array
      * @throws ExpiredTokenException
      */
     public function decode($token, string $algorithm = null)
@@ -136,11 +136,11 @@ class JwtAdapter implements AdapterInterface
             throw new ExpiredTokenException($e->getMessage());
         }
 
-        if (isset($jwtData[0])) {
+        if (is_array($jwtData) && isset($jwtData[0])) {
             return (array) $jwtData[0];
         }
 
-        return null;
+        return (array) $jwtData;
     }
 
     /**

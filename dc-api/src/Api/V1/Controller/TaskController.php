@@ -2,11 +2,17 @@
 
 namespace DC\Api\V1\Controller;
 
-use DC\Controller\BaseController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TaskController extends BaseController
+class TaskController extends ApiBaseController
 {
+    /**
+     * @Route("/task", name="api_task_test", methods={"GET"})
+     */
+    public function test()
+    {
+        return $this->response('ok');
+    }
     /**
      * @Route("/task/{id}", name="api_task_one", methods={"GET"})
      */
