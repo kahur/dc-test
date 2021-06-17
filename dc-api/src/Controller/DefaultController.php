@@ -4,9 +4,9 @@ namespace DC\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 
-class HomeController extends BaseController
+class DefaultController extends BaseController
 {
-    public function index()
+    public function error()
     {
         return new Response('<h1>Not found</h1>', 404);
     }

@@ -2,54 +2,64 @@
 
 namespace DC\Api\V1\Controller;
 
+use DC\Service\Task\TaskService;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TaskController extends ApiBaseController
 {
     /**
-     * @Route("/task", name="api_task_test", methods={"GET"})
+     * @var TaskService
      */
-    public function test()
-    {
-        return $this->response('ok');
-    }
+    protected $taskService;
+
     /**
-     * @Route("/task/{id}", name="api_task_one", methods={"GET"})
+     * TaskController constructor.
+     * @param TaskService $taskService
      */
-    public function getTask()
+    public function __construct(TaskService $taskService)
     {
-        return $this->json(['task']);
+        $this->taskService = $taskService;
     }
 
     /**
-     * @Route("/task/my-list", name="api_task_all", methods={"GET"})
+     * @Route("/task/my-list", name="api_task_daily", methods={"GET"})
      */
     public function getMyTaskList()
     {
-        return $this->json(['tasks']);
+        $tasks = $this->taskService->getUserDailyTasks($this->getUser()->getUserIdentifier());
+
+        return $this->response($tasks);
     }
 
     /**
      * @Route("/task", name="api_create_task", methods={"POST"})
      */
-    public function createTask()
+    public function createTask(Request $request)
     {
-        return $this->json(['task']);
+
+        $task = $this->taskService->createTask($this->getUser()->getUserIdentifier(), $request->request->all());
+
+        return $this->response($task);
     }
 
     /**
-     * @Route("/task", name="api_update_task", methods={"PUT"})
+     * @Route("/task/{id}", name="api_update_task", methods={"PUT"})
      */
-    public function updateTask()
+    public function updateTask(int $id, Request $request)
     {
-        return $this->json(['task']);
+        $task = $this->taskService->updateTask($id, $this->getUser()->getUserIdentifier(), $request->request->all());
+
+        return $this->response($task);
     }
 
     /**
      * @Route("/task/{id}", name="api_delete_task", methods={"DELETE"})
      */
-    public function deleteTask()
+    public function deleteTask(int $id)
     {
-        return $this->json(['task']);
+        $this->taskService->removeTask($id);
+
+        return $this->response('');
     }
 }
