@@ -20,7 +20,7 @@ services:
       - ./dc-api/docker/nginx/sites:/etc/nginx/sites-available
       - ./dc-api/docker/nginx/conf.d:/etc/nginx/conf.d
     ports:
-      - "80:80"
+      - "8080:80"
     links:
       - php-api
 
@@ -35,6 +35,16 @@ services:
       MYSQL_USER: dc
       MYSQL_PASSWORD: dc-test
       MYSQL_ROOT_PASSWORD: dc-test
+
+  dc-frontend:
+    build:
+      context: ./dc-front
+      dockerfile: docker/Dockerfile.build
+    volumes:
+      - ./dc-front:/app
+    ports:
+      - "80:4200"
+
 
 
 
