@@ -1,7 +1,16 @@
 default:
   path: /
-  controller: DC\Controller\HomeController::index
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+  defaults:
+    path: /404
+    permanent: true
+
+error:
+  path: /404
+  controller: DC\Controller\DefaultController::error
+
 api:
   resource: ../src/Api/V1/Controller
   type: annotation
   prefix: /api
+

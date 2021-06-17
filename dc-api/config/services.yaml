@@ -31,3 +31,12 @@ services:
         arguments:
             $key: '%security.jwt.key%'
             $issuer: '%security.jwt.issuer%'
+
+    DC\Listeners\NotFoundListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+
+    get_set_method_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags:
+            - { name: serializer.normalizer }
