@@ -6,6 +6,7 @@
 parameters:
     security.jwt.key: '%env(resolve:JWT_KEY)%'
     security.jwt.issuer: '%env(resolve:JWT_ISSUER)%'
+    cors.origin: '%env(resolve:CORS_ORIGIN)%'
 
 services:
     # default configuration for services in *this* file

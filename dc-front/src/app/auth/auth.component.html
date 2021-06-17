@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="col-md-12">
+    <dc-auth-form (onFormSubmit)="authenticate($event)" [processing]="inProgress"></dc-auth-form>
+  </div>
+  <br />
+  <br />
+  <div class="col-md-4 offset-sm-4">
+    <div *ngIf="error" class="alert alert-danger">
+      {{error}}
+    </div>
+  </div>
+</div>
