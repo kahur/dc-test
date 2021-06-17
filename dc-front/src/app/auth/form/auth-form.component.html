@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="form-signin">
+  <h1 class="form-signin-heading text-muted">Sign In</h1>
+  <input formControlName="email" [ngClass]="{'red-border' : !email?.valid}" type="text" class="form-control"
+         placeholder="jonhy@bravo.tld" required autofocus="">
+  <input formControlName="password" [ngClass]="{'red-border' : !password?.valid}" type="password" class="form-control"
+         placeholder="Password" required>
+
+
+    <button [disabled]="!form.valid" class="btn btn-lg btn-primary btn-block float-end" type="submit">
+      Sign In
+    </button>
+    <img *ngIf="processing" src="assets/spinner.gif" width="44" class="float-end">
+</form>
