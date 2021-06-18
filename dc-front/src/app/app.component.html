@@ -1,7 +1,11 @@
-<div *ngIf="isAuthenticated">
-  <router-outlet></router-outlet>
-</div>
-<!-- 2 different implementations due to have ability to do layout -->
-<div *ngIf="!isAuthenticated">
-  <router-outlet></router-outlet>
-</div>
+
+  <div *ngIf="isAuthenticated">
+    <dc-default-layout>
+      <router-outlet></router-outlet>
+    </dc-default-layout>
+  </div>
+  <!-- 2 different implementations due to have ability to do layout -->
+  <div *ngIf="!isAuthenticated">
+    <router-outlet></router-outlet>
+  </div>
+

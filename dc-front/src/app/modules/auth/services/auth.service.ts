@@ -27,7 +27,7 @@ export class AuthService {
 
     if (data !== null) {
       data = JSON.parse(data);
-      return <UserCredentials|unknown>data!;
+      return <UserCredentials | unknown>data!;
     }
 
     return null;
@@ -44,6 +44,10 @@ export class AuthService {
           this.onAuthenticationFailure.emit(error.message);
         }
       );
+  }
+
+  public removeCredentials() {
+    localStorage.removeItem('dc_sess');
   }
 
   protected sendAuthentication(email: string, password: string): Observable<any> {

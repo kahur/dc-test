@@ -1,0 +1,13 @@
+<div class="scroll-area-sm">
+  <perfect-scrollbar class="ps-show-limits">
+    <div style="position: static;" class="ps ps--active-y">
+      <div class="ps-content">
+        <ul class=" list-group list-group-flush">
+          <li *ngFor="let item of taskList" class="list-group-item">
+            <dc-task-item [taskItem]="item"></dc-task-item>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </perfect-scrollbar>
+</div>

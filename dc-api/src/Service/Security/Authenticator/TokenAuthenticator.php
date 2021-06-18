@@ -32,7 +32,7 @@ class TokenAuthenticator extends AbstractAuthenticator
      */
     public function supports(Request $request): ?bool
     {
-        return $request->headers->has('Authentication');
+        return $request->headers->has('Auth');
     }
 
     /**
@@ -41,7 +41,7 @@ class TokenAuthenticator extends AbstractAuthenticator
      */
     public function authenticate(Request $request): PassportInterface
     {
-        $apiToken = $request->headers->get('Authentication');
+        $apiToken = $request->headers->get('Auth');
         if (null === $apiToken) {
             // The token header was empty, authentication fails with HTTP Status
             // Code 401 "Unauthorized"

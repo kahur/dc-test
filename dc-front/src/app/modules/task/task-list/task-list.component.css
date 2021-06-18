@@ -1,0 +1,20 @@
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125)
+}
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0
+}
+
+.scroll-area-sm {
+  height: calc(100vh - 100px);
+  overflow-x: hidden
+}
