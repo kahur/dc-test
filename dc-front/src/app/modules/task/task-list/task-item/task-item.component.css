@@ -1,0 +1,71 @@
+
+.todo-indicator {
+  position: absolute;
+  width: 4px;
+  height: 60%;
+  border-radius: 0.3rem;
+  left: 0.625rem;
+  top: 20%;
+  opacity: .6;
+  transition: opacity .2s
+}
+
+.bg-warning {
+  background-color: #f7b924 !important
+}
+
+.widget-content {
+  padding: 1rem;
+  flex-direction: row;
+  align-items: center
+}
+
+.widget-content .widget-content-wrapper {
+  display: flex;
+  flex: 1;
+  position: relative;
+  align-items: center
+}
+
+.widget-content .widget-content-right.widget-content-actions {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s
+}
+
+.widget-content .widget-content-right {
+  margin-left: auto
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer
+}
+
+.btn {
+  position: relative;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s
+}
+
+.btn-outline-success {
+  color: #3ac47d;
+  border-color: #3ac47d
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #3ac47d;
+  border-color: #3ac47d
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #3ac47d;
+  border-color: #3ac47d
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #3f6ad8;
+  border-color: #3f6ad8
+}
+

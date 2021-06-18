@@ -17,7 +17,7 @@ class TokenAuthenticatorTest extends TestCase
         $bag = $this->createMock(HeaderBag::class);
         $bag->expects($this->once())
             ->method('has')
-            ->with('Authentication')
+            ->with('Auth')
             ->willReturn(true);
 
         $request = $this->createMock(Request::class);
@@ -35,7 +35,7 @@ class TokenAuthenticatorTest extends TestCase
         $bag = $this->createMock(HeaderBag::class);
         $bag->expects($this->once())
             ->method('has')
-            ->with('Authentication')
+            ->with('Auth')
             ->willReturn(false);
 
         $request = $this->createMock(Request::class);

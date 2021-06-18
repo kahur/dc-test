@@ -3,21 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routing.module';
-import {TaskComponent} from "./task/task.component";
+import {TaskComponent} from "./modules/task/task.component";
 import {Location} from "@angular/common";
-import {AuthModule} from "./auth/auth.module";
+import {AuthModule} from "./modules/auth/auth.module";
+import {TaskModule} from "./modules/task/task.module";
+import {DefaultLayoutComponent} from "./layouts/default-layout.component";
+import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
+import {AuthInterceptor} from "./modules/auth/services/auth.interceptor";
+import {AuthService} from "./modules/auth/services/auth.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent
+    DefaultLayoutComponent
   ],
   imports: [
     BrowserModule,
     RoutingModule,
-    AuthModule
+    AuthModule,
+    TaskModule
   ],
-  providers: [Location],
+  providers: [
+    Location
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
