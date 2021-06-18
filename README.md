@@ -41,6 +41,10 @@ docker-compose exec php-api php bin/console doctrine:fixtures:load
 
 ### DONE! 
 Open browser: http://localhost for frontend
+
 Open browser: http://localhost:8080/api for api
 
+### Testing user
+**email:** jonhy@bravo.tld
 
+**password**: 1234
