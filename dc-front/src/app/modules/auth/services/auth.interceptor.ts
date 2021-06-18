@@ -12,7 +12,6 @@ import {AuthService} from "./auth.service";
 import {Router} from "@angular/router";
 import {UserCredentials} from "./entity/user-credentials";
 import {catchError} from "rxjs/operators";
-import {Whatever} from "../../../whatever";
 
 @Injectable({
   providedIn: 'root'
